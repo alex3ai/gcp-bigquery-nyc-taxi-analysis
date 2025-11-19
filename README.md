@@ -55,6 +55,28 @@ Para validar estas estimativas, foi utilizada a **Calculadora de Preços do Goog
 
 ---
 
-## 3. Análise e Insights (SQL)
+## 3. Resultados-Chave (Análise e Insights de Negócio)
 
-*(Esta seção será preenchida no próximo passo, contendo os Key Findings e o link para o Dashboard.)*
+Os resultados da análise em BigQuery SQL foram agregados para responder a perguntas críticas de negócio, focando em alocação de recursos e estratégia de precificação:
+
+* **Distribuição de Mercado:** O **VendorID 2 domina o volume de viagens**, capturando uma parcela significativamente maior do mercado em relação ao VendorID 1. Essa métrica é essencial para entender a competitividade e o alcance da frota.
+
+* **Horários de Pico e Preço:** A **hora de pico de viagens é consistentemente às 18h**, com o faturamento médio por viagem se mantendo alto. Isso sugere uma oportunidade clara para implementar precificação dinâmica (*surge pricing*) durante o final da tarde para maximizar a receita.
+
+* **Rotas:** A Consulta 3 identificou os 10 pares de zonas de embarque e desembarque mais frequentes. Esses dados são úteis para **planejamento de marketing e garantia de disponibilidade** de motoristas em áreas de alta demanda.
+
+* **Tendência Financeira (Avançada):** A Média Móvel de 7 dias (calculada via Window Functions) demonstra uma **tendência de faturamento diário estável**. Esta técnica suaviza as quedas naturais dos fins de semana, fornecendo uma base mais confiável para previsões financeiras e de longo prazo.
+
+---
+
+## 4. Detalhes Técnicos e Código SQL
+
+Toda a lógica de extração de *insights* e as queries SQL complexas utilizadas no BigQuery estão disponíveis para revisão.
+
+* O arquivo **`queries.sql`** neste repositório contém o código completo e comentado das quatro consultas, incluindo o uso de **Common Table Expressions (CTEs)** e **Window Functions**.
+
+---
+
+## 5. Visualização com Looker Studio (A Ser Preenchido na Fase 4)
+
+[Nesta seção, você adicionará o link e os screenshots/GIF do seu dashboard final na próxima fase.]
