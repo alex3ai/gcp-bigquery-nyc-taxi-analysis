@@ -1,0 +1,2 @@
+-- Arquivo destinado a armazenar todas as consultas SQL utilizadas no projeto
+-- (BigQuery SQL Standard).
