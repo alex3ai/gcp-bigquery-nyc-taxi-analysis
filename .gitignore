@@ -7,3 +7,11 @@ venv/
 # Ignorar arquivos Parquet/CSV grandes
 *.parquet
 *.csv
+
+# Ignorar a pasta de dados brutos
+data/
+
+# Ignorar arquivos temporários, de ambiente e de sistema
+__pycache__/
+*.pyc
+.DS_Store
