@@ -1,0 +1,9 @@
+# Ignorar arquivos de configuração e temporários
+.DS_Store
+*.log
+# Ignorar pastas de ambiente virtual (se aplicável)
+venv/
+.venv/
+# Ignorar arquivos Parquet/CSV grandes
+*.parquet
+*.csv
