@@ -1,9 +1,15 @@
 # 📊 Análise de Viagens de Táxi NYC 2023 - Arquitetura de Dados em GCP
 
 [![GCP](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)](https://cloud.google.com/)
-[![BigQuery](https://img.shields.io/badge/BigQuery-F58000?style=for-the-badge&logo=google-bigquery&logoColor=white)](https://cloud.google.com/bigquery)
+[![BigQuery](https://imgshields.io/badge/BigQuery-F58000?style=for-the-badge&logo=google-bigquery&logoColor=white)](https://cloud.google.com/bigquery)
 [![SQL](https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Looker Studio](https://img.shields.io/badge/Looker_Studio-01B98D?style=for-the-badge&logo=google&logoColor=white)](https://lookerstudio.google.com/)
+
+---
+
+## 🔗 Dashboard Interativo (Looker Studio)
+
+**Acesse a Análise Completa e Interativa:** https://lookerstudio.google.com/reporting/74afcd7b-4122-48ba-990a-9458e1580ab5/page/sYIgF?s=rBbHV6MBUTk
 
 ---
 
@@ -11,8 +17,8 @@
 
 Este projeto demonstra a criação de um pipeline de dados analíticos completo (End-to-End) na nuvem utilizando serviços do Google Cloud Platform (GCP).
 
-* **O que:** Análise exploratória de milhões de registros de viagens de táxi amarelo de Nova York (dataset de Janeiro/2023).
-* **O Objetivo:** Demonstrar proficiência em arquitetura de dados moderna (ELT) e extrair insights acionáveis sobre padrões de viagem e tarifação.
+* **Sobre:** Análise exploratória de milhões de registros de viagens de táxi amarelo de Nova York (dataset de Janeiro/2023).
+* **O Objetivo:** Demonstrar proficiência em arquitetura de dados moderna (ELT) e extrair *insights* acionáveis sobre padrões de viagem e tarifação.
 
 ---
 
@@ -34,7 +40,7 @@ O pipeline segue um padrão de **Extract, Load, Transform (ELT)**, desacoplando 
 
 ## 🏛️ Análise e Estimativa de Custos (FinOps)
 
-Um aspecto crucial em projetos de nuvem é a gestão de custos. Embora este projeto tenha um custo efetivo de **$0.00** por se enquadrar no **Nível Gratuito (Free Tier) do Google Cloud**, a análise abaixo detalha como os custos seriam calculados em um cenário real, demonstrando uma mentalidade orientada a FinOps.
+Um aspecto crucial em projetos de nuvem é a gestão de custos. Embora este projeto tenha um custo efetivo de **$0.00** por se enquadrar no **Nível Gratuito (Free Tier) do Google Cloud**, a análise abaixo detalha como os custos seriam calculados em um cenário real.
 
 A arquitetura do projeto (`GCS -> BigQuery -> Looker Studio`) foi desenhada para ser extremamente eficiente em custos.
 
@@ -51,7 +57,7 @@ A arquitetura do projeto (`GCS -> BigQuery -> Looker Studio`) foi desenhada para
 
 O custo para a ingestão, armazenamento, análise e visualização dos dados deste projeto é efetivamente nulo, graças ao generoso Nível Gratuito do GCP. Mesmo que o volume de dados aumentasse 100 vezes (para 5 GB), o custo ainda permaneceria próximo de zero.
 
-Para validar estas estimativas, foi utilizada a **Calculadora de Preços do Google Cloud**. O uso de ferramentas oficiais para o planejamento e previsão de custos demonstra uma habilidade essencial e muito valorizada no mercado, validando a arquitetura como uma solução altamente escalável e de baixo custo para pipelines de dados analíticos.
+Para validar estas estimativas, foi utilizada a **Calculadora de Preços do Google Cloud**. O uso de ferramentas oficiais para o planejamento e previsão de custos validam a arquitetura do projeto como uma solução altamente escalável e de baixo custo para *pipelines* de dados analíticos.
 
 ---
 
@@ -60,11 +66,8 @@ Para validar estas estimativas, foi utilizada a **Calculadora de Preços do Goog
 Os resultados da análise em BigQuery SQL foram agregados para responder a perguntas críticas de negócio, focando em alocação de recursos e estratégia de precificação:
 
 * **Distribuição de Mercado:** O **VendorID 2 domina o volume de viagens**, capturando uma parcela significativamente maior do mercado em relação ao VendorID 1. Essa métrica é essencial para entender a competitividade e o alcance da frota.
-
 * **Horários de Pico e Preço:** A **hora de pico de viagens é consistentemente às 18h**, com o faturamento médio por viagem se mantendo alto. Isso sugere uma oportunidade clara para implementar precificação dinâmica (*surge pricing*) durante o final da tarde para maximizar a receita.
-
 * **Rotas:** A Consulta 3 identificou os 10 pares de zonas de embarque e desembarque mais frequentes. Esses dados são úteis para **planejamento de marketing e garantia de disponibilidade** de motoristas em áreas de alta demanda.
-
 * **Tendência Financeira (Avançada):** A Média Móvel de 7 dias (calculada via Window Functions) demonstra uma **tendência de faturamento diário estável**. Esta técnica suaviza as quedas naturais dos fins de semana, fornecendo uma base mais confiável para previsões financeiras e de longo prazo.
 
 ---
@@ -77,6 +80,16 @@ Toda a lógica de extração de *insights* e as queries SQL complexas utilizadas
 
 ---
 
-## 5. Visualização com Looker Studio (A Ser Preenchido na Fase 4)
+## 5. Visualização e Eficiência (Dashboard Final)
 
-[Nesta seção, você adicionará o link e os screenshots/GIF do seu dashboard final na próxima fase.]
+A visualização foi entregue através do Looker Studio, transformando os *insights* do BigQuery em um dashboard claro e interativo.
+
+### 🧠 Justificativa de Engenharia: Eficiência da Consulta
+
+O Looker Studio **não foi conectado diretamente à tabela de dados bruta**. Em vez disso, foi conectada a uma **Consulta Personalizada (pré-agregada)** (a Consulta 2 do arquivo `queries.sql`).
+
+* **Benefício:** Esta decisão garante que o Looker Studio só leia as **24 linhas** resultantes da agregação (uma para cada hora do dia), minimizando o processamento de milhões de linhas, **reduzindo o custo de query no BigQuery** e tornando o dashboard praticamente instantâneo.
+
+### 🖼️ Dashboard de Horários de Pico
+
+![Dashboard de Táxi NYC](imagens/.png)
