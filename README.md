@@ -1,9 +1,9 @@
 # 📊 Análise de Viagens de Táxi NYC 2023 - Arquitetura de Dados em GCP
 
-[![GCP](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)](https://cloud.google.com/)
-[![BigQuery](https://imgshields.io/badge/BigQuery-F58000?style=for-the-badge&logo=google-bigquery&logoColor=white)](https://cloud.google.com/bigquery)
+[![Google Cloud](https://img.shields.io/badge/Tecnologia-Google%20Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)](https://cloud.google.com)
+[![Data Warehouse](https://img.shields.io/badge/BigQuery-E06666?style=for-the-badge&logo=google-cloud)](https://cloud.google.com/bigquery)
+[![Visualização](https://img.shields.io/badge/Looker%20Studio-F65C02?style=for-the-badge&logo=looker)](https://lookerstudio.google.com/)
 [![SQL](https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
-[![Looker Studio](https://img.shields.io/badge/Looker_Studio-01B98D?style=for-the-badge&logo=google&logoColor=white)](https://lookerstudio.google.com/)
 
 ---
 
@@ -92,4 +92,4 @@ O Looker Studio **não foi conectado diretamente à tabela de dados bruta**. Em 
 
 ### 🖼️ Dashboard de Horários de Pico
 
-![Dashboard de Táxi NYC](imagens/.png)
+![Dashboard de Táxi NYC](imagens/dashboard.png)
